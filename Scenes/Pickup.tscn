@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://477kdkq3y7e0"]
+
+[ext_resource type="Script" uid="uid://bfd7sy4wkw2w1" path="res://Scripts/Pickup.gd" id="1_uuccb"]
+[ext_resource type="Texture2D" uid="uid://c165g8lnh74xn" path="res://Assets/Icons/potion_02b.png" id="2_uuccb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuccb"]
+size = Vector2(17, 16)
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_uuccb")
+item = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_uuccb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uuccb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
