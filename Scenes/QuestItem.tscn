@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://k75f5wb2uqba"]
+
+[ext_resource type="Script" uid="uid://bpd67ftajl1vd" path="res://Scripts/QuestItem.gd" id="1_iihs5"]
+[ext_resource type="Texture2D" uid="uid://3iw8qhrey18f" path="res://Assets/Icons/book_02d.png" id="2_eymr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuccb"]
+size = Vector2(12, 16)
+
+[node name="QuestItem" type="Area2D"]
+script = ExtResource("1_iihs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uuccb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eymr0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,3 +1,5 @@
+# Ammo ammount
+
 extends ColorRect
 
 # Node ref

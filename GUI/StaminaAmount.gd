@@ -1,3 +1,5 @@
+# Stamina amount
+
 extends ColorRect
 
 # Node ref

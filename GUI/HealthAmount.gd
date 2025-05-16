@@ -1,3 +1,5 @@
+# Health amount
+
 extends ColorRect
 
 # Node ref

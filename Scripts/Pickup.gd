@@ -1,3 +1,5 @@
+# Pickups
+
 @tool
 
 extends Area2D

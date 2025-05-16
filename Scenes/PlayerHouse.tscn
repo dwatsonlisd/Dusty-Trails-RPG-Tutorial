@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=4 uid="uid://c4kagu4tvgumd"]
+
+[ext_resource type="Script" uid="uid://jf5251jqxcri" path="res://Scripts/PlayerHouse.gd" id="1_qmfak"]
+[ext_resource type="TileSet" uid="uid://dcwxnsa7p2x81" path="res://Assets/Tiles.tres" id="1_t0dk7"]
+[ext_resource type="Texture2D" uid="uid://c6rycrb80mcjo" path="res://Assets/Buildings/House.png" id="2_qmfak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omruh"]
+size = Vector2(194, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdjk7"]
+size = Vector2(47, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m74ic"]
+size = Vector2(46, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b1ko"]
+size = Vector2(3, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maluy"]
+size = Vector2(4, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0dk7"]
+size = Vector2(27, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxn02"]
+size = Vector2(20, 10.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmfak"]
+size = Vector2(190, 92)
+
+[node name="PlayerHouse" type="Node2D"]
+script = ExtResource("1_qmfak")
+
+[node name="Interior" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAD6/wIAAAAgAA0AAAD6/wEAAAAgAA0AAAD6/wAAAAAgAA0AAAD6////AAAgAA0AAAD6//7/AAAgAA0AAAAFAP7/AAAkAA0AAAAFAP//AAAjAA0AAAAFAAAAAAAjAA0AAAAFAAEAAAAjAA0AAAAFAAIAAAAkAA0AAAD7/wIAAAAhAA0AAAD8/wIAAAAiAA0AAAD9/wIAAAAjAA0AAAD9/wMAAAAjAA0AAAD7/wEAAAAhAA0AAAD8/wEAAAAiAA0AAAD9/wEAAAAjAA0AAAD7/wAAAAAhAA0AAAD8/wAAAAAiAA0AAAD9/wAAAAAjAA0AAAD7////AAAhAA0AAAD8////AAAiAA0AAAD9////AAAjAA0AAAD7//7/AAAhAA0AAAD8//7/AAAiAA0AAAD9//7/AAAjAA0AAAD+//7/AAAjAA0AAAD///7/AAAiAA0AAAAAAP7/AAAjAA0AAAD+////AAAjAA0AAAD/////AAAjAA0AAAAAAP//AAAjAA0AAAD+/wAAAAAjAA0AAAD//wAAAAAjAA0AAAAAAAAAAAAjAA0AAAD+/wEAAAAjAA0AAAD//wEAAAAjAA0AAAAAAAEAAAAjAA0AAAD+/wIAAAAjAA0AAAD//wIAAAAjAA0AAAAAAAIAAAAjAA0AAAABAP7/AAAhAA0AAAACAP7/AAAiAA0AAAADAP7/AAAjAA0AAAABAP//AAAjAA0AAAACAP//AAAjAA0AAAADAP//AAAjAA0AAAABAAAAAAAjAA0AAAACAAAAAAAjAA0AAAADAAAAAAAjAA0AAAABAAEAAAAjAA0AAAACAAEAAAAjAA0AAAADAAEAAAAjAA0AAAABAAIAAAAjAA0AAAACAAIAAAAjAA0AAAADAAIAAAAjAA0AAAAEAP7/AAAjAA0AAAAEAP//AAAjAA0AAAAEAAEAAAAjAA0AAAAEAAAAAAAjAA0AAAAEAAIAAAAjAA0AAAD+/wQAAAAjAA0AAAD//wQAAAAjAA0AAAAAAAQAAAAjAA0AAAABAAQAAAAjAA0AAAAFAAMAAAApAAsAAAD7/wMAAAAmAAsAAAD8/wMAAAAnAAsAAAD6/wMAAAAlAAsAAAAEAAMAAAAoAAsAAAADAAMAAAAnAAsAAAACAAMAAAAjAA0AAAABAAMAAAAjAA0AAAD+/wMAAAAjAA0AAAD//wMAAAAjAA0AAAAAAAMAAAAjAA0AAAD6//3/AAAlAAoAAAD7//3/AAAmAAoAAAD8//3/AAAnAAoAAAD9//3/AAAoAAoAAAD+//3/AAAmAAoAAAD///3/AAAnAAoAAAAAAP3/AAAoAAoAAAABAP3/AAAmAAoAAAACAP3/AAAmAAoAAAADAP3/AAAnAAoAAAAEAP3/AAAoAAoAAAAFAP3/AAApAAoAAAD9/wQAAAAjAA0AAAACAAQAAAAjAA0AAAD9/wUAAAAiAAkAAAD+/wUAAAAjAAkAAAD//wUAAAAkAAkAAAAAAAUAAAAlAAkAAAABAAUAAAAmAAkAAAACAAUAAAAnAAkAAAA=")
+tile_set = ExtResource("1_t0dk7")
+
+[node name="Furnishings" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAD9////AgAbACIAAAD9/wAAAgAbACMAAAD9/wEAAgAbACQAAAD9/wIAAgAbACUAAAD9/wMAAgAbACYAAAD+////AgAcACIAAAD+/wAAAgAcACMAAAD+/wEAAgAcACQAAAD+/wIAAgAcACUAAAD+/wMAAgAcACYAAAD/////AgAdACIAAAD//wAAAgAdACMAAAD//wEAAgAdACQAAAD//wIAAgAdACUAAAD//wMAAgAdACYAAAAAAP//AgAeACIAAAAAAAAAAgAeACMAAAAAAAEAAgAeACQAAAAAAAIAAgAeACUAAAAAAAMAAgAeACYAAAABAP//AgAfACIAAAABAAAAAgAfACMAAAABAAEAAgAfACQAAAABAAIAAgAfACUAAAABAAMAAgAfACYAAAACAP//AgAgACIAAAACAAAAAgAgACMAAAACAAEAAgAgACQAAAACAAIAAgAgACUAAAACAAMAAgAgACYAAAD+//z/AgAZAAMAAAD+//3/AgAZAAQAAAD+//7/AgAZAAUAAAD///z/AgAaAAMAAAD///3/AgAaAAQAAAD///7/AgAaAAUAAAAAAPz/AgAbAAMAAAAAAP3/AgAbAAQAAAAAAP7/AgAbAAUAAAABAP3/AgAOABIAAAABAP7/AgAOABMAAAACAP3/AgAPABIAAAACAP7/AgAPABMAAAADAP3/AgAQABIAAAADAP7/AgAQABMAAAD8//3/AgAfABoAAAD8//7/AgAfABsAAAD9//3/AgAgABoAAAD9//7/AgAgABsAAAD6//3/AgAMAAgAAAD6//7/AgAMAAkAAAD7//3/AgANAAgAAAD7//7/AgANAAkAAAD6/wAAAgAhAAUAAAD6/wEAAgAdAAQAAAD6/wIAAgAdAAUAAAD6////AgAhAAQAAAAEAAIAAgAYABsAAAAFAAIAAgAZABsAAAAFAAAAAgARAAUAAAAEAP7/AgAQAAMAAAAEAP//AgAQAAQAAAAFAP7/AgARAAMAAAAFAP//AgARAAQAAAAEAAAAAgAQAAUAAAA=")
+tile_set = ExtResource("1_t0dk7")
+
+[node name="Exterior" type="Sprite2D" parent="."]
+texture = ExtResource("2_qmfak")
+offset = Vector2(1.065, 7.33)
+
+[node name="Wall_Top" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Top"]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_omruh")
+
+[node name="Wall_Bottom" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Bottom"]
+position = Vector2(-71.5, 61.5)
+shape = SubResource("RectangleShape2D_hdjk7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall_Bottom"]
+position = Vector2(72, 60.5)
+shape = SubResource("RectangleShape2D_m74ic")
+
+[node name="Wall_Left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Left"]
+position = Vector2(-96.5, 12.5)
+shape = SubResource("RectangleShape2D_7b1ko")
+
+[node name="Wall_right" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_right"]
+position = Vector2(97, 13)
+shape = SubResource("RectangleShape2D_maluy")
+
+[node name="Bed" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+position = Vector2(79.5, -7.5)
+shape = SubResource("RectangleShape2D_t0dk7")
+debug_color = Color(0.940433, 0.0109552, 0.610211, 0.42)
+
+[node name="Chest" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(-52, -24.75)
+shape = SubResource("RectangleShape2D_mxn02")
+debug_color = Color(0.913516, 0.292079, 0, 0.42)
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_qmfak")
+debug_color = Color(0, 0.637193, 0.395258, 0.42)
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

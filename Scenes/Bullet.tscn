@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://db30qnafvln4y"]
+
+[ext_resource type="Script" uid="uid://bm8taxfsqn1hx" path="res://Scripts/Bullet.gd" id="1_14k46"]
+[ext_resource type="Texture2D" uid="uid://c0x06v0gpmfeh" path="res://Assets/FX/Death Explosion.png" id="1_vlxeq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14k46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvus8"]
+atlas = ExtResource("1_vlxeq")
+region = Rect2(0, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pypll"]
+atlas = ExtResource("1_vlxeq")
+region = Rect2(50, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vg3fc"]
+atlas = ExtResource("1_vlxeq")
+region = Rect2(100, 0, 50, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14k46"]
+atlas = ExtResource("1_vlxeq")
+region = Rect2(150, 0, 50, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvob7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvus8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pypll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vg3fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14k46")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 8.0
+}]
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_14k46")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_14k46")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cvob7")
+animation = &"impact"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
