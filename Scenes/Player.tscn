@@ -1014,6 +1014,22 @@ text = "GAME OVER!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="UI/GameOver"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("14_o3h8g")
+theme_override_font_sizes/font_size = 10
+text = "PRESS ESC TO CONTINUE"
+
 [node name="LevelUpPopup" type="CanvasLayer" parent="UI"]
 process_mode = 2
 visible = false
@@ -1250,6 +1266,67 @@ theme_override_fonts/font = ExtResource("14_o3h8g")
 theme_override_font_sizes/font_size = 20
 text = "SNOOZING..."
 
+[node name="PauseScreen" type="CanvasLayer" parent="UI"]
+
+[node name="Menu" type="ColorRect" parent="UI/PauseScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.211765, 0.337255, 0.333333, 1)
+
+[node name="Resume" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -55.0
+offset_right = 90.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_o3h8g")
+theme_override_font_sizes/font_size = 20
+text = "RESUME GAME"
+
+[node name="Save" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -15.0
+offset_right = 90.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_o3h8g")
+theme_override_font_sizes/font_size = 20
+text = "SAVE GAME"
+
+[node name="Quit" type="Button" parent="UI/PauseScreen/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 25.0
+offset_right = 90.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_o3h8g")
+theme_override_font_sizes/font_size = 20
+text = "QUIT TO MAIN MENU"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_mo1ky")
@@ -1257,5 +1334,7 @@ libraries = {
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="UI/LevelUpPopup/Message/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="UI/PauseScreen/Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/PauseScreen/Menu/Quit" to="." method="_on_quit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="UI/DialogPopup" method="_on_animation_player_animation_finished"]

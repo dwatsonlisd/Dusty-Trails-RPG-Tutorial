@@ -60,6 +60,12 @@ var xp = 0
 var level = 1
 var xp_requirements = 100
 
+# Paused state
+var paused
+
+# UI nodes
+@onready var pause_screen = $UI/PauseScreen
+
 func _ready():
 	# Connect the signals to the UI components' functions
 	health_updated.connect(health_bar.update_health_ui)
@@ -173,6 +179,24 @@ func _input(event):
 				else:
 					return
 				return
+	# Show pause menu
+	if !pause_screen.visible:
+		if event.is_action_pressed("ui_pause"):
+			# Pause game
+			get_tree().paused = true
+			# Show pause screen popup
+			pause_screen.visible = true
+			# Stops movement processing
+			set_physics_process(false)
+			# Set pauses state to be true
+			paused = true
+			
+			# If the player is dead, go back to the main menu screen
+			if health <= 0:
+				get_node("/root/%s" % Global.current_scene_name).queue_free()
+				Global.change_scene("res://Scenes/MainScene.tscn")
+				get_tree().paused = false
+				return
 	
 # Animations
 func player_animations(direction : Vector2):
@@ -266,6 +290,8 @@ func hit(damage):
 	else:
 		# Death
 		set_process(false)
+		get_tree().paused = true
+		paused = true
 		animation_player.play("game_over")
 
 
@@ -328,3 +354,20 @@ func _on_confirm_pressed():
 	level_popup.visible = false
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+
+func _on_resume_pressed():
+	# Hide pause menu
+	pause_screen.visible = false
+	# Set paused state to be false
+	get_tree().paused = false
+	paused = false
+	# Accept movement and input
+	set_process_input(true)
+	set_physics_process(true)
+
+
+func _on_quit_pressed():
+	Global.change_scene("res://Scenes/MainScene.tscn")
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
